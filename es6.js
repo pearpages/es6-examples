@@ -3,7 +3,9 @@
 // letVariables().letScopeExample();
 // letVariables().forExampleVar();
 // letVariables().forExampleLet();
-defaultValuesForFunctions().example1();
+// defaultValuesForFunctions().simpleExample();
+// defaultValuesForFunctions().functionAsAParameter();
+constDeclarations().understandingConst();
 
 function understandingArrowFunctions() {
 
@@ -132,11 +134,46 @@ function defaultValuesForFunctions() {
     }
 
     function functionAsAParameter() {
-        
+
         receive();
 
         function receive(complete = () => console.log('Hello Pere')) {
             complete();
         }
+    }
+}
+
+function constDeclarations() {
+
+    return  {
+        understandingConst: understandingConst
+    }
+
+    // it is a general convention to put constants in capital letters:
+    // var VALUE = 'hello world';
+
+    function understandingConst() {
+        // const in fact is just a const reference
+        const VALUE = 1;
+        const VALUES = {
+            var1 : 1,
+            var2: 2,
+            var3: 3
+        }
+
+        try {
+            VALUE = 2; // Assignment to constant variable.
+        } catch (err) {
+            console.log(err.message);
+        }
+
+        try {
+            VALUES = {}; // Assignment to constant variable.
+        } catch (err) {
+            console.log(err.message);
+        }
+        
+        VALUES.var1 = 99; // OK.
+        console.log(VALUES);
     }
 }
