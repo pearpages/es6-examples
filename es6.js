@@ -154,6 +154,7 @@ function constDeclarations() {
 
     function understandingConst() {
         // const in fact is just a const reference
+        // const works in a block scope like let
         const VALUE = 1;
         const VALUES = {
             var1 : 1,
