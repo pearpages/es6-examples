@@ -5,7 +5,8 @@
 // letVariables().forExampleLet();
 // defaultValuesForFunctions().simpleExample();
 // defaultValuesForFunctions().functionAsAParameter();
-constDeclarations().understandingConst();
+// constDeclarations().understandingConst();
+propertiesShorthands().example();
 
 function understandingArrowFunctions() {
 
@@ -176,5 +177,23 @@ function constDeclarations() {
         
         VALUES.var1 = 99; // OK.
         console.log(VALUES);
+    }
+}
+
+function propertiesShorthands() {
+
+    return {
+        example: example
+    }
+
+    function example() {
+        let firstName = 'Pere';
+        let lastName = 'Pages';
+
+        let person = {firstName, lastName};
+
+        let mascot = 'Moose';
+        let team =  {person,mascot};
+        console.log(team);
     }
 }
