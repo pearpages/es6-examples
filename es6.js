@@ -6,7 +6,9 @@
 // defaultValuesForFunctions().simpleExample();
 // defaultValuesForFunctions().functionAsAParameter();
 // constDeclarations().understandingConst();
-propertiesShorthands().example();
+// propertiesShorthands().example();
+objectEnhancements().example();
+
 
 function understandingArrowFunctions() {
 
@@ -195,5 +197,28 @@ function propertiesShorthands() {
         let mascot = 'Moose';
         let team =  {person,mascot};
         console.log(team);
+    }
+}
+
+function objectEnhancements() {
+
+    return {
+        example
+    }
+
+    function example() {
+        
+        let color = 'red';
+        let speed = 10;
+        let drive = 'go';
+
+        var car = {
+            color,
+            speed,
+            [drive] : () => console.log('vroom')
+        }
+
+        car.go();
+        console.log(car);
     }
 }
