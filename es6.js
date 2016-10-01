@@ -7,8 +7,8 @@
 // defaultValuesForFunctions().functionAsAParameter();
 // constDeclarations().understandingConst();
 // propertiesShorthands().example();
-objectEnhancements().example();
-
+// objectEnhancements().example();
+spreadOperator().spreadAndArrays();
 
 function understandingArrowFunctions() {
 
@@ -220,5 +220,24 @@ function objectEnhancements() {
 
         car.go();
         console.log(car);
+    }
+}
+
+function spreadOperator() {
+
+    return {
+        spreadAndArrays
+    };
+
+    function spreadAndArrays() {
+        let values1 = [1,2,3,4];
+        let values2 = [5,6,7,8];
+        let final = values1.slice();
+
+        final.push(...values2);
+        console.log(values1);
+        console.log(values2);
+        console.log(final);
+        
     }
 }
