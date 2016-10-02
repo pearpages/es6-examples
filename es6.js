@@ -8,7 +8,8 @@
 // constDeclarations().understandingConst();
 // propertiesShorthands().example();
 // objectEnhancements().example();
-spreadOperator().spreadAndArrays();
+// spreadOperator().spreadAndArrays();
+spreadOperator().usingItWithFunctions();
 
 function understandingArrowFunctions() {
 
@@ -226,7 +227,8 @@ function objectEnhancements() {
 function spreadOperator() {
 
     return {
-        spreadAndArrays
+        spreadAndArrays,
+        usingItWithFunctions
     };
 
     function spreadAndArrays() {
@@ -239,5 +241,18 @@ function spreadOperator() {
         console.log(values2);
         console.log(final);
         
+    }
+
+    function usingItWithFunctions() {
+
+        let values1 = [1,2,3];
+        let values2 = [4,5,6];
+
+        function sumValues(a,b,c) {
+            return a + b + c;
+        }
+
+        console.log(sumValues(...values1));
+        console.log(sumValues(...values2));
     }
 }
