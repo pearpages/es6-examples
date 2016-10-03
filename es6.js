@@ -9,7 +9,9 @@
 // propertiesShorthands().example();
 // objectEnhancements().example();
 // spreadOperator().spreadAndArrays();
-spreadOperator().usingItWithFunctions();
+// spreadOperator().usingItWithFunctions();
+// stringTemplates().withExpressions();
+stringTemplates().withFormat();
 
 function understandingArrowFunctions() {
 
@@ -254,5 +256,28 @@ function spreadOperator() {
 
         console.log(sumValues(...values1));
         console.log(sumValues(...values2));
+    }
+}
+
+function stringTemplates() {
+
+    return {
+        withExpressions,
+        withFormat
+    }
+
+    function withExpressions() {
+
+        function showExpression(x,y) {
+            console.log(`${x} + ${y} = ${x+y}`)
+        }
+
+        showExpression(2,3);
+    }
+
+    function withFormat() {
+        console.log(`one line
+        another line
+        another another line`);
     }
 }
