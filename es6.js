@@ -16,8 +16,8 @@ stringTemplates().withFormat();
 function understandingArrowFunctions() {
 
     return {
-        someArrowFucntionsExamples: someArrowFucntionsExamples,
-        nestedFunctionsAccessingThis: nestedFunctionsAccessingThis
+        someArrowFucntionsExamples,
+        nestedFunctionsAccessingThis
     };
 
     function someArrowFucntionsExamples() {
@@ -69,9 +69,9 @@ function understandingArrowFunctions() {
 function letVariables() {
 
     return {
-        letScopeExample: letScopeExample,
-        forExampleVar: forExampleVar,
-        forExampleLet: forExampleLet
+        letScopeExample,
+        forExampleVar,
+        forExampleLet
     };
 
     function letScopeExample() {
@@ -124,8 +124,8 @@ function letVariables() {
 
 function defaultValuesForFunctions() {
     return {
-        simpleExample: simpleExample,
-        functionAsAParameter: functionAsAParameter
+        simpleExample,
+        functionAsAParameter
     }
 
     function simpleExample() {
