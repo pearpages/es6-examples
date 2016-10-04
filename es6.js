@@ -13,7 +13,8 @@
 // stringTemplates().withExpressions();
 // stringTemplates().withFormat();
 // destructuringAssignment().example1();
-destructuringAssignment().example2();
+// destructuringAssignment().example2();
+destructuringAssignment().withArrays();
 
 function understandingArrowFunctions() {
 
@@ -288,7 +289,8 @@ function destructuringAssignment() {
 
     return {
         example1,
-        example2
+        example2,
+        withArrays
     }
 
     function example1() {
@@ -320,5 +322,13 @@ function destructuringAssignment() {
 
         console.log(doors, engine);
         console.log(aliasForDoors, aliasForEngine);
+    }
+
+    function withArrays() {
+
+        let values = ['white','yellow','orange','red','green','blue'];
+
+        let [first,,,,fifth] = values;
+        console.log(first,fifth); // white, green
     }
 }
