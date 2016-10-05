@@ -11,7 +11,9 @@
 // spreadOperator().spreadAndArrays();
 // spreadOperator().usingItWithFunctions();
 // stringTemplates().withExpressions();
-stringTemplates().withFormat();
+// stringTemplates().withFormat();
+// destructuringAssignment().example1();
+destructuringAssignment().example2();
 
 function understandingArrowFunctions() {
 
@@ -279,5 +281,42 @@ function stringTemplates() {
         console.log(`one line
         another line
         another another line`);
+    }
+}
+
+function destructuringAssignment() {
+
+    return {
+        example1,
+        example2
+    }
+
+    function example1() {
+        let object = {
+            firstName: 'Pere',
+            lastName: 'Pages',
+            married: false,
+            sex: 'man',
+            birthYear: '1982'
+        };
+
+        let {firstName,sex} = object;
+        console.log(firstName,sex);
+    }
+
+    function example2() {
+
+        function getCar() {
+            return {
+                doors: 3,
+                drivers: 1,
+                engine: 'gasoline',
+                horsePower: '22Ocv'
+            }
+        }
+
+        let {doors,engine} = getCar();
+
+        console.log(doors, engine);
     }
 }
