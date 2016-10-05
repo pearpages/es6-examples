@@ -316,7 +316,9 @@ function destructuringAssignment() {
         }
 
         let {doors,engine} = getCar();
+        let {doors: aliasForDoors ,engine : aliasForEngine} = getCar();
 
         console.log(doors, engine);
+        console.log(aliasForDoors, aliasForEngine);
     }
 }
