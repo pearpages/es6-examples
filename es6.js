@@ -14,7 +14,8 @@
 // stringTemplates().withFormat();
 // destructuringAssignment().example1();
 // destructuringAssignment().example2();
-destructuringAssignment().withArrays();
+// destructuringAssignment().withArrays();
+destructuringAssignment().example3();
 
 function understandingArrowFunctions() {
 
@@ -154,7 +155,7 @@ function defaultValuesForFunctions() {
 
 function constDeclarations() {
 
-    return  {
+    return {
         understandingConst: understandingConst
     }
 
@@ -166,7 +167,7 @@ function constDeclarations() {
         // const works in a block scope like let
         const VALUE = 1;
         const VALUES = {
-            var1 : 1,
+            var1: 1,
             var2: 2,
             var3: 3
         }
@@ -182,7 +183,7 @@ function constDeclarations() {
         } catch (err) {
             console.log(err.message);
         }
-        
+
         VALUES.var1 = 99; // OK.
         console.log(VALUES);
     }
@@ -198,10 +199,10 @@ function propertiesShorthands() {
         let firstName = 'Pere';
         let lastName = 'Pages';
 
-        let person = {firstName, lastName};
+        let person = { firstName, lastName };
 
         let mascot = 'Moose';
-        let team =  {person,mascot};
+        let team = { person, mascot };
         console.log(team);
     }
 }
@@ -213,7 +214,7 @@ function objectEnhancements() {
     }
 
     function example() {
-        
+
         let color = 'red';
         let speed = 10;
         let drive = 'go';
@@ -221,7 +222,7 @@ function objectEnhancements() {
         var car = {
             color,
             speed,
-            [drive] : () => console.log('vroom')
+            [drive]: () => console.log('vroom')
         }
 
         car.go();
@@ -237,23 +238,23 @@ function spreadOperator() {
     };
 
     function spreadAndArrays() {
-        let values1 = [1,2,3,4];
-        let values2 = [5,6,7,8];
+        let values1 = [1, 2, 3, 4];
+        let values2 = [5, 6, 7, 8];
         let final = values1.slice();
 
         final.push(...values2);
         console.log(values1);
         console.log(values2);
         console.log(final);
-        
+
     }
 
     function usingItWithFunctions() {
 
-        let values1 = [1,2,3];
-        let values2 = [4,5,6];
+        let values1 = [1, 2, 3];
+        let values2 = [4, 5, 6];
 
-        function sumValues(a,b,c) {
+        function sumValues(a, b, c) {
             return a + b + c;
         }
 
@@ -271,11 +272,11 @@ function stringTemplates() {
 
     function withExpressions() {
 
-        function showExpression(x,y) {
-            console.log(`${x} + ${y} = ${x+y}`)
+        function showExpression(x, y) {
+            console.log(`${x} + ${y} = ${x + y}`)
         }
 
-        showExpression(2,3);
+        showExpression(2, 3);
     }
 
     function withFormat() {
@@ -290,7 +291,8 @@ function destructuringAssignment() {
     return {
         example1,
         example2,
-        withArrays
+        withArrays,
+        example3
     }
 
     function example1() {
@@ -302,8 +304,8 @@ function destructuringAssignment() {
             birthYear: '1982'
         };
 
-        let {firstName,sex} = object;
-        console.log(firstName,sex);
+        let {firstName, sex} = object;
+        console.log(firstName, sex);
     }
 
     function example2() {
@@ -317,8 +319,8 @@ function destructuringAssignment() {
             }
         }
 
-        let {doors,engine} = getCar();
-        let {doors: aliasForDoors ,engine : aliasForEngine} = getCar();
+        let {doors, engine} = getCar();
+        let {doors: aliasForDoors, engine: aliasForEngine} = getCar();
 
         console.log(doors, engine);
         console.log(aliasForDoors, aliasForEngine);
@@ -326,9 +328,40 @@ function destructuringAssignment() {
 
     function withArrays() {
 
-        let values = ['white','yellow','orange','red','green','blue'];
+        let values = ['white', 'yellow', 'orange', 'red', 'green', 'blue'];
 
-        let [first,,,,fifth] = values;
-        console.log(first,fifth); // white, green
+        let [first, , , , fifth] = values;
+        console.log(first, fifth); // white, green
+    }
+
+    function example3() {
+        let values = [
+            {
+                a: 'a',
+                b: 'b',
+                c: 'c',
+                d: 'd'
+            },
+            {
+                a: 'e',
+                b: 'f',
+                c: 'g',
+                d: 'h'
+            },
+            {
+                a: 'i',
+                b: 'j',
+                c: 'k',
+                d: 'l'
+            }
+        ];
+
+        let [,two] = values;
+
+        log(two);
+
+        function log({b}) {
+            console.log(b);
+        }
     }
 }
