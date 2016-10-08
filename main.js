@@ -1,3 +1,5 @@
+import { sumTwo } from './addition.js';
+
 // understandingArrowFunctions().someArrowFucntionsExamples();
 // understandingArrowFunctions().nestedFunctionsAccessingThis();
 // letVariables().letScopeExample();
@@ -15,7 +17,8 @@
 // destructuringAssignment().example1();
 // destructuringAssignment().example2();
 // destructuringAssignment().withArrays();
-destructuringAssignment().example3();
+// destructuringAssignment().example3();
+modulesImportExport().example1();
 
 function understandingArrowFunctions() {
 
@@ -172,17 +175,17 @@ function constDeclarations() {
             var3: 3
         }
 
-        try {
-            VALUE = 2; // Assignment to constant variable.
-        } catch (err) {
-            console.log(err.message);
-        }
+        // try {
+        //     VALUE = 2; // Assignment to constant variable.
+        // } catch (err) {
+        //     console.log(err.message);
+        // }
 
-        try {
-            VALUES = {}; // Assignment to constant variable.
-        } catch (err) {
-            console.log(err.message);
-        }
+        // try {
+        //     VALUES = {}; // Assignment to constant variable.
+        // } catch (err) {
+        //     console.log(err.message);
+        // }
 
         VALUES.var1 = 99; // OK.
         console.log(VALUES);
@@ -356,7 +359,7 @@ function destructuringAssignment() {
             }
         ];
 
-        let [,two] = values;
+        let [, two] = values;
 
         log(two);
 
@@ -364,4 +367,17 @@ function destructuringAssignment() {
             console.log(b);
         }
     }
+}
+
+function modulesImportExport() {
+
+    return {
+        example1
+    }
+
+    function example1() {
+
+        console.log('2+5', sumTwo(2, 5));
+    }
+
 }
