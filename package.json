@@ -4,6 +4,7 @@
   "description": "Just comment or uncomment the part of the code you want to run to understand ES2015 functionality.",
   "main": "main.js",
   "scripts": {
+    "start": "babel-node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
