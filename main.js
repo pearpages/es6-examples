@@ -24,7 +24,8 @@ import * as users from './modules/data.js'
 // promises().example1();
 // generators().example1();
 // mapsAndWeakMaps().maps();
-mapsAndWeakMaps().weakMaps();
+// mapsAndWeakMaps().weakMaps();
+objectDestructuringWithRequiredValues().example();
 
 function understandingArrowFunctions() {
 
@@ -54,21 +55,21 @@ function understandingArrowFunctions() {
 
         var test = {
             object: 'Car',
-            print: function () {
+            print: function() {
                 this.sayHello();
                 console.log(this.object); // thx to prototypical inheritance
             },
-            sayHello: function () {
+            sayHello: function() {
                 console.log('Hello!!!');
             }
         }
 
         var deliveryBoy = {
             name: 'Pere',
-            handleMessage: function (message, handler) {
+            handleMessage: function(message, handler) {
                 handler(message);
             },
-            receive: function () {
+            receive: function() {
                 this.handleMessage('Hello ', (message) => console.log(message + this.name))
             }
         }
@@ -113,7 +114,7 @@ function letVariables() {
 
         for (var i = 0; i < 10; i++) {
             console.log(i); // 0,1,2,3,4,5,6,7,8,9
-            res.push(function () {
+            res.push(function() {
                 console.log(i); // not yet executed
             });
         }
@@ -126,7 +127,7 @@ function letVariables() {
         let res = [];
 
         for (let i = 0; i < 10; i++) {
-            res.push(function () { console.log(i) });
+            res.push(function() { console.log(i) });
         }
 
         // console.log(i); // not defined, because i lives only inside the for
@@ -386,9 +387,9 @@ function modulesImportExport() {
         // check the import statement at the top of the file
         // check the addition.js to see the export
         console.log('2+5', sumTwo(2, 5));
-        console.log('1+5+10', addThreeNumbers(1,5,10));
-        console.log('9+4+8+12', sumFour(9,4,8,12));
-        console.log(users.users,users.codes);
+        console.log('1+5+10', addThreeNumbers(1, 5, 10));
+        console.log('9+4+8+12', sumFour(9, 4, 8, 12));
+        console.log(users.users, users.codes);
     }
 
 }
@@ -415,15 +416,15 @@ function promises() {
     }
 
     function example1() {
-        let d = new Promise((resolve,reject) => {
-            if(Math.random() > 0.49) {
+        let d = new Promise((resolve, reject) => {
+            if (Math.random() > 0.49) {
                 resolve('hello world');
             } else {
                 reject('no bueno');
             }
         });
 
-        d.then((data) => console.log(data),(err) => console.log(err));
+        d.then((data) => console.log(data), (err) => console.log(err));
     }
 }
 
@@ -444,8 +445,8 @@ function generators() {
             let x = 0;
             let y = 0;
 
-            while(true) {
-                yield {x:x, y:y}
+            while (true) {
+                yield { x: x, y: y }
                 x += 2;
                 y += 2;
             }
@@ -474,8 +475,8 @@ function mapsAndWeakMaps() {
 
         var myMap = new Map();
 
-        myMap.set('foo','bar');
-        myMap.set('hello','world');
+        myMap.set('foo', 'bar');
+        myMap.set('hello', 'world');
         console.log(myMap);
         console.log(myMap.keys()); // {'foo','hello'}
         console.log(myMap.values()); // {'bar','world'}
@@ -490,5 +491,28 @@ function mapsAndWeakMaps() {
     function weakMaps() {
         // no references are kept
         // http://stackoverflow.com/questions/29413222/what-are-the-actual-uses-of-es6-weakmap
+    }
+}
+
+function objectDestructuringWithRequiredValues() {
+
+    return {
+        example
+    }
+
+    function example() {
+
+        ajax({url: 'hello.com', success: () => console.log('success') });
+
+        function ajax({
+            type = "get",
+            url = requiredParameter("url"),
+            data = {},
+            success = requiredParameter("success"),
+            error = () => { },
+            isAsync = true
+        }) {
+            console.log(JSON.stringify({ type, url, data, success, error, isAsync }, null, 2));
+        }
     }
 }
