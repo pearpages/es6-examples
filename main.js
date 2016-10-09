@@ -1,4 +1,4 @@
-import { sumTwo, sumThree as addThreeNumbers } from './addition.js';
+import { sumTwo, sumThree as addThreeNumbers, sumFour } from './addition.js';
 
 // understandingArrowFunctions().someArrowFucntionsExamples();
 // understandingArrowFunctions().nestedFunctionsAccessingThis();
@@ -381,6 +381,7 @@ function modulesImportExport() {
         // check the addition.js to see the export
         console.log('2+5', sumTwo(2, 5));
         console.log('1+5+10', addThreeNumbers(1,5,10));
+        console.log('9+4+8+12', sumFour(9,4,8,12));
     }
 
 }
