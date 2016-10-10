@@ -19,7 +19,8 @@ import * as users from './modules/data.js'
 // destructuringAssignment().example2();
 // destructuringAssignment().withArrays();
 // destructuringAssignment().example3();
-modulesImportExport().example1();
+// modulesImportExport().example1();
+convertObjectToArray().example1();
 
 function understandingArrowFunctions() {
 
@@ -386,4 +387,20 @@ function modulesImportExport() {
         console.log(users.users,users.codes);
     }
 
+}
+
+function convertObjectToArray() {
+    return {
+        example1
+    }
+
+    function example1() {
+
+        let string = 'hello world';
+        let array = Array.from(string);
+
+        array.forEach((v) => console.log(v));
+        let filtered = array.filter((v) => v === 'o');
+        console.log(filtered);
+    }
 }
