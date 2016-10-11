@@ -20,7 +20,8 @@ import * as users from './modules/data.js'
 // destructuringAssignment().withArrays();
 // destructuringAssignment().example3();
 // modulesImportExport().example1();
-convertObjectToArray().example1();
+// convertObjectToArray().example1();
+promises().example1();
 
 function understandingArrowFunctions() {
 
@@ -402,5 +403,23 @@ function convertObjectToArray() {
         array.forEach((v) => console.log(v));
         let filtered = array.filter((v) => v === 'o');
         console.log(filtered);
+    }
+}
+
+function promises() {
+    return {
+        example1
+    }
+
+    function example1() {
+        let d = new Promise((resolve,reject) => {
+            if(Math.random() > 0.49) {
+                resolve('hello world');
+            } else {
+                reject('no bueno');
+            }
+        });
+
+        d.then((data) => console.log(data),(err) => console.log(err));
     }
 }
