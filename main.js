@@ -22,7 +22,9 @@ import * as users from './modules/data.js'
 // modulesImportExport().example1();
 // convertObjectToArray().example1();
 // promises().example1();
-generators().example1();
+// generators().example1();
+mapsAndWeakMaps().maps();
+mapsAndWeakMaps().weakMaps();
 
 function understandingArrowFunctions() {
 
@@ -448,5 +450,44 @@ function generators() {
                 y += 2;
             }
         }
+    }
+}
+
+function mapsAndWeakMaps() {
+
+    return {
+        maps,
+        weakMaps
+    }
+
+    function maps() {
+        // set()
+        // get()
+        // size
+        // clear()
+        // has()
+
+        // Iterators
+        // keys()
+        // entries()
+        // values()
+
+        var myMap = new Map();
+
+        myMap.set('foo','bar');
+        myMap.set('hello','world');
+        console.log(myMap);
+        console.log(myMap.keys()); // {'foo','hello'}
+        console.log(myMap.values()); // {'bar','world'}
+        console.log(myMap.entries()); // { ['foo','bar'], ['hello','world']}
+        console.log(myMap.size); // 2
+        console.log(myMap.has('foo')); // true
+        myMap.clear();
+        console.log(myMap); // {}
+
+    }
+
+    function weakMaps() {
+
     }
 }
