@@ -21,7 +21,8 @@ import * as users from './modules/data.js'
 // destructuringAssignment().example3();
 // modulesImportExport().example1();
 // convertObjectToArray().example1();
-promises().example1();
+// promises().example1();
+generators().example1();
 
 function understandingArrowFunctions() {
 
@@ -421,5 +422,31 @@ function promises() {
         });
 
         d.then((data) => console.log(data),(err) => console.log(err));
+    }
+}
+
+function generators() {
+    return {
+        example1
+    }
+
+    function example1() {
+
+        let graph = graphGenerator()
+        console.log(graph.next());
+        console.log(graph.next());
+        console.log(graph.next());
+        console.log(graph.next());
+
+        function* graphGenerator() {
+            let x = 0;
+            let y = 0;
+
+            while(true) {
+                yield {x:x, y:y}
+                x += 2;
+                y += 2;
+            }
+        }
     }
 }
