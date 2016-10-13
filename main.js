@@ -25,7 +25,7 @@ import * as users from './modules/data.js'
 // generators().example1();
 // mapsAndWeakMaps().maps();
 // mapsAndWeakMaps().weakMaps();
-objectDestructuringWithRequiredValues().example();
+// objectDestructuringWithRequiredValues().example();
 
 function understandingArrowFunctions() {
 
