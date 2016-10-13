@@ -23,7 +23,7 @@ import * as users from './modules/data.js'
 // convertObjectToArray().example1();
 // promises().example1();
 // generators().example1();
-mapsAndWeakMaps().maps();
+// mapsAndWeakMaps().maps();
 mapsAndWeakMaps().weakMaps();
 
 function understandingArrowFunctions() {
@@ -488,6 +488,7 @@ function mapsAndWeakMaps() {
     }
 
     function weakMaps() {
-
+        // no references are kept
+        // http://stackoverflow.com/questions/29413222/what-are-the-actual-uses-of-es6-weakmap
     }
 }
