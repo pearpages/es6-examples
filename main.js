@@ -26,6 +26,7 @@ import * as users from './modules/data.js'
 // mapsAndWeakMaps().maps();
 // mapsAndWeakMaps().weakMaps();
 // objectDestructuringWithRequiredValues().example();
+restArguments().example();
 
 function understandingArrowFunctions() {
 
@@ -513,6 +514,22 @@ function objectDestructuringWithRequiredValues() {
             isAsync = true
         }) {
             console.log(JSON.stringify({ type, url, data, success, error, isAsync }, null, 2));
+        }
+    }
+}
+
+function restArguments() {
+
+    return {
+        example
+    }
+
+    function example() {
+
+        myFunction(1,2,3,4,5);
+        
+        function myFunction (...items) {
+            console.log(items)
         }
     }
 }
