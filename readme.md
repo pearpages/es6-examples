@@ -105,3 +105,109 @@ var obj = {
 
 obj.foo();
 ```
+
+---
+
+## Let vs Var
+
+Try to use the declarations as close to where they are being used as possible.
+
+```js
+function foo(x,y) {
+  var z = x * 2;
+
+  if (x > y) {
+    let tmp = x;
+    x = y;
+    y = tmp;
+  }
+
+  for ( let i = 0; i < 10; i++) {
+    // ...
+  }
+}
+```
+
+---
+
+## Const
+
+A constant is a variable that cannot be reassigned. NOT A VALUEABLE THAT DOESN'T CHANGE.
+
+> Const is about assignment.
+
+```js
+const x = [1,2,3];
+x.push(4);
+console.log(x); // [1,2,3,4]
+```
+
+### Object.freeze
+
+```js
+const x = [1,2,3];
+Object.freeze(x);
+x.push(4); // error
+```
+
+### When
+
+```js
+const PI = 3.1416;
+```
+
+---
+
+## Default values
+
+```js
+function (x) {
+  var x = x || 2;
+  // ...
+}
+```
+
+vs
+
+```js
+function (x = 2) {
+  // ...
+}
+```
+
+---
+
+## Lazy Expressions
+
+Some good examples
+
+```js
+// When generating a default new id
+function uniqId() {
+  return Math.random();
+}
+
+function foo(id = unidId()) {
+
+}
+
+foo();
+foo();
+```
+
+```js
+// throw an error when a parameter is missing
+function missingParameter() {
+  throw 'Missing parameter';
+}
+
+function myFunction(x = missingParameter()) {
+  // ...
+}
+
+try {
+    myFunction();
+} catch (err) {
+    console.log(err);
+}
+```

@@ -34,3 +34,30 @@ var obj = {
 }
 
 obj.foo();
+
+function cons(x) {
+    console.log(x);
+}
+
+function uniqId() {
+  return Math.random();
+}
+
+function foo(id = uniqId()) {
+    // ...
+}
+
+
+function missingParameter() {
+  throw 'Missing parameter';
+}
+
+function myFunction(x = missingParameter()) {
+  // ...
+}
+
+try {
+    myFunction();
+} catch (err) {
+    console.log(err);
+}
