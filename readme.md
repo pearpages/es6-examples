@@ -211,3 +211,54 @@ try {
     console.log(err);
 }
 ```
+
+---
+
+## Rest/Gather and Spred
+
+So either transforms from parameters to an array, or from an array to parameters.
+
+### Old way
+
+```js
+function bar() {
+    var args = [].slice.call(arguments);
+    return args.reduce(function (acc = 0,current) {
+        return acc + current;
+    });
+}
+
+function foo() {
+    var args = [].slice.call(arguments);
+    args.unshift(42);
+    return bar.apply(null,args);
+}
+```
+
+### New way
+
+```js
+function bar(...args) {
+    return args.reduce(function (acc = 0, current) {
+        return acc + current;
+    });
+}
+
+function foo(...args) {
+    args.unshift(42);
+    return bar(...args);
+    // or
+    // return bar(42,..args);
+}
+
+console.log(bar(3,4,5));
+console.log(foo(3,4,5));
+```
+
+even
+
+```js
+function foo (...args) {
+  bar(42, ...args);
+}
+```
