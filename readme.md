@@ -262,3 +262,44 @@ function foo (...args) {
   bar(42, ...args);
 }
 ```
+
+### Other examples
+
+```javascript
+var x = [1,2,3];
+var y = [4,5];
+var z = [0].concat(x,y,[6])
+
+// vs
+
+var x = [1,2,3];
+var y = [4,5];
+var z = [0,...x,...y,6];
+```
+
+or
+
+```javascript
+var str = "hello";
+var x = str.split("");
+
+// vs
+
+var str = "hello";
+var x = [...str];
+```
+
+```javascript
+function foo(a,b,c,...args) {
+  return [a,...args];
+
+}
+
+function bar() {
+
+  var a1 = [2,4];
+  var a2 = [6,8,10,12];
+
+  return foo(...a1,...a2);
+}
+```
