@@ -344,3 +344,19 @@ function foo() {
 
 var [a,b,c] = foo(); // 4 and 5 won't be assigned
 ```
+
+```javascript
+function foo() {
+  return null;
+}
+
+var [a,b,c] = foo(); // error!
+```
+
+```javascript
+function foo() {
+  return [];
+}
+
+var [a,b = 42,c] = foo(); // b = 42
+```
