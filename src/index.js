@@ -1,5 +1,5 @@
-function cons(x) {
-    console.log(x);
+function cons(...args) {
+    args.forEach( (x) => console.log(x));
 }
 
 // var obj = {
@@ -77,16 +77,24 @@ function cons(x) {
 
 // cons(foo(3,4,5));
 
-function bar(...args) {
-    return args.reduce(function (acc = 0, current) {
-        return acc + current;
-    });
+// function bar(...args) {
+//     return args.reduce(function (acc = 0, current) {
+//         return acc + current;
+//     });
+// }
+
+// function foo(...args) {
+//     args.unshift(42);
+//     return bar(...args);
+// }
+
+// cons(bar(3,4,5));
+// cons(foo(3,4,5));
+
+function foo() {
+  return [1,2,3];
 }
 
-function foo(...args) {
-    args.unshift(42);
-    return bar(...args);
-}
+var [a,b,c] = foo();
 
-cons(bar(3,4,5));
-cons(foo(3,4,5));
+cons(a,b,c);

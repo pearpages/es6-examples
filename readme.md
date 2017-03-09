@@ -303,3 +303,44 @@ function bar() {
   return foo(...a1,...a2);
 }
 ```
+
+---
+
+ ## Array Destructuring
+
+ ```javascript
+function foo() {
+  return [1,2,3];
+}
+
+var tmp = foo();
+var a = tmp[0];
+var b = tmp[1];
+var c = tmp[2];
+```
+
+vs declarative way
+
+```javascript
+function foo() {
+  return [1,2,3];
+}
+
+var [a,b,c] = foo();
+```
+
+```javascript
+function foo() {
+  return [1,2];
+}
+
+var [a,b,c] = foo(); // c will be undefined
+```
+
+```javascript
+function foo() {
+  return [1,2,3,4,5];
+}
+
+var [a,b,c] = foo(); // 4 and 5 won't be assigned
+```
