@@ -91,10 +91,28 @@ function cons(...args) {
 // cons(bar(3,4,5));
 // cons(foo(3,4,5));
 
+// function foo() {
+//   return [1,2,3];
+// }
+
+// var [a,b,c] = foo();
+
+// cons(a,b,c);
+
+// var a = [1,2,3];
+
+// [x,y,...a] = [0, ...a, 4];
+
+// cons(x,y,a);
+
 function foo() {
-  return [1,2,3];
+  return {a:1,b:2,c:3};
 }
 
-var [a,b,c] = foo();
+var {
+  a,
+  b: X,
+  c
+} = foo();
 
-cons(a,b,c);
+cons(a,X,c);
