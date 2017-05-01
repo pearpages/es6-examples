@@ -147,6 +147,8 @@ function foo(x = y + 3, z = bar(x)) {
 
 Or *structure assignment*.
 
+> Destructuring is a general assignment operation, not just a declaration.
+
 ```js
 // old way
 var tmp = foo();
@@ -180,5 +182,31 @@ console.log(c,b,a); // 3 2 1
 
 function bar() {
     return { a: 1, b: 2, c: 3 };
+}
+```
+
+```js
+var aa = 10, bb = 20;
+
+var o = {x: aa, y: bb};
+var {x:AA, y:BB} = o;
+
+console.log(AA,BB); // 10 20
+```
+
+```js
+ var a, b, c, x, y, z;
+[a,b,c] = foo(); // 1 2 3
+({x,y,z} = bar()); // 4 5 6
+
+console.log(a,b,c);
+console.log(x,y,z);
+
+function foo() {
+    return [1,2,3];
+}
+
+function bar() {
+    return {x:4,y:5,z:6};
 }
 ```
