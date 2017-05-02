@@ -9,17 +9,17 @@ function arrowFunctions() {
     function example1() {
 
         var controller = {
+            myNumber: 3,
             foo: function () {
-                this.myNumber = 3;
-                this.bar();
+                this.bar(this.myNumber);
                 controller.bar();
             },
-            bar: function () {
-                console.log('hello world');
+            bar: function (x) {
+                console.log('hello world '+x);
             }
         }
 
-        controller.foo(); // hello world \n hello world
+        controller.foo(); // hello world 3 \n hello world undefined
 
         this.helloMars = () => console.log('hello mars!');
 
