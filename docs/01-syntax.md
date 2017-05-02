@@ -9,6 +9,7 @@
 + arrow functions
 + for..of loops
 + regular expressions
++ symbols
 
 ---
 
@@ -490,3 +491,27 @@ Sticky essentially means the regular expression has a virtual anchor at its begi
 
 ## Number Literal Extensions
 
+```js
+var dec = 42,
+    oct = 052,
+    hex = 0x2a;
+```
+
+For web compatibility reasons, the old octal 052 form will continue to be legal (though unspecified) in non-strict mode, but should really never be used anymore.
+
+```js
+Number( "42" );  // 42
+Number( "0o52" );  // 42
+Number( "0x2a" );  // 42
+Number( "0b101010" );  // 42
+```
+
+---
+
+## Symbols
+
+The main point of a symbol is to create a string-like value that can’t collide with any other value.
+
+You may use a symbol directly as a property name/key in an object, such as a special property that you want to treat as hidden or meta in usage. It’s important to know that it is not actually a hidden or untouchable property, but more a property that you just intend to treat as such.
+
+---
