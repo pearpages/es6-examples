@@ -5,6 +5,7 @@
 + spread/rest
 + default value expressions
 + destructuring
++ object literal extensions
 
 ---
 
@@ -250,4 +251,120 @@ function bar() {
 ```
 
 ### Nested destructuring
+
+```js
+var a1 = [1, [2, 3, 4], 5];
+var o1 = { x: { y: { z: 6 } } };
+var [a, [b, c, d], e] = a1;
+var { x: { y: { z: w } } } = o1;
+console.log(a, b, c, d, e); // 1 2 3 4 5
+console.log(w); // 6
+```
+
+### Destructuring Parameters
+
+```js
+foo([1,2]); // { x: 1, y: 2 }
+
+function foo ([x,y]) {
+    console.log( {x,y});
+}
+```
+
+---
+
+## Object Literal Extensions
+
+### Concise Properties
+
+```js
+var x = 2, y = 3, o, p;
+
+// old way
+o = {
+    x: x,
+    y: y
+};
+
+console.log(o); // { x: 2, y: 3 }
+
+// es6 way
+
+p = {x,y};
+
+console.log(p); // { x: 2, y: 3 }
+```
+
+### Concise Methods
+
+> concise methods have special behaviors that their older counterparts don’t; specifically, the allowance for super “Object super".
+
+```js
+// old way
+var o = {
+    x: function () {
+        console.log('hello world!')
+    }
+};
+
+// new way
+var p = {
+    x() {
+        console.log('hello world');
+    }
+};
+
+o.x(); // hello world!
+p.x(); // hello world
+```
+
+### Getters and Setters
+
+```js
+var o = {
+    __id: 10,
+    get id() { return this.__id++; },
+    set id(v) { this.__id = v; }
+}
+console.log(o.id); // 10 o.id; // 11 o.id = 20;
+console.log(o.id); // 20
+// and:
+console.log(o.__id); // 21
+console.log(o.__id); // 21 -- still!
+```
+
+### Other
+
++ Computed Property Names
++ Setting Prototype
++ Object super
+
+---
+
+## Template Literals
+
+> It should have been called: *Interpolated String Literals*. **Kyle Simpson**.
+
+### Interpolated Expressions
+
+```js
+function bar() {
+    var name = "bar";
+    foo( `Hello from ${name}!` );
+}
+```
+
+### Tagged Tempplate Literals
+
+```js
+function latex(str) {
+ return { "cooked": str[0], "raw": str.raw[0] }
+}
+
+latex`\unicode` // { cooked: undefined, raw: "\\unicode" }
+```
+
+---
+
+
 

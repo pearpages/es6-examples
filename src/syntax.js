@@ -1,4 +1,71 @@
-export { spreadRest, scopes, defaultParameterValues, destructuring }
+export { spreadRest, scopes, defaultParameterValues, destructuring, objectLiteralExtensions }
+
+function objectLiteralExtensions() {
+
+    return {
+        properties,
+        methods,
+        gettersAndSetters,
+        computedPropertyNames
+    }
+
+    function computedPrpertyNames () {
+
+    }
+
+    function gettersAndSetters() {
+        var o = {
+            __id: 10,
+            get id() { return this.__id++; },
+            set id(v) { this.__id = v; }
+        }
+        console.log(o.id); // 10 o.id; // 11 o.id = 20;
+        console.log(o.id); // 20
+        // and:
+        console.log(o.__id); // 21
+        console.log(o.__id); // 21 -- still!
+    }
+
+    function methods() {
+
+        // old way
+        var o = {
+            x: function () {
+                console.log('hello world!')
+            }
+        };
+
+        // new way
+        var p = {
+            x() {
+                console.log('hello world');
+            }
+        };
+
+        o.x(); // hello world!
+        p.x(); // hello world
+
+    }
+
+    function properties() {
+        var x = 2, y = 3, o, p;
+
+        // old way
+        o = {
+            x: x,
+            y: y
+        };
+
+        console.log(o); // { x: 2, y: 3 }
+
+        // es6 way
+
+        p = { x, y };
+
+        console.log(p); // { x: 2, y: 3 }
+
+    }
+}
 
 function destructuring() {
     return {
@@ -8,19 +75,29 @@ function destructuring() {
         example4,
         assigningOnlyAFew,
         defaultValueAssignment,
-        nestedDestructuring
+        nestedDestructuring,
+        destructuringParameters
+    }
+
+    function destructuringParameters() {
+
+        foo([1, 2]); // { x: 1, y: 2 }
+
+        function foo([x, y]) {
+            console.log({ x, y });
+        }
     }
 
     function defaultValueAssignment() {
 
         let [a = 3, b = 4, c = 7, d = 13] = foo();
-        let {x= 23, y=4, z=-9, w= 12} = bar();
+        let { x = 23, y = 4, z = -9, w = 12 } = bar();
 
-        console.log(a,b,c,d); // 1 2 3 13
-        console.log(x,y,z,w); // 12 34 56 12
+        console.log(a, b, c, d); // 1 2 3 13
+        console.log(x, y, z, w); // 12 34 56 12
 
-        function foo () {
-            return [1,2,3];
+        function foo() {
+            return [1, 2, 3];
         }
 
         function bar() {
@@ -33,7 +110,12 @@ function destructuring() {
     }
 
     function nestedDestructuring() {
-
+        var a1 = [1, [2, 3, 4], 5];
+        var o1 = { x: { y: { z: 6 } } };
+        var [a, [b, c, d], e] = a1;
+        var { x: { y: { z: w } } } = o1;
+        console.log(a, b, c, d, e); // 1 2 3 4 5
+        console.log(w); // 6
     }
 
     function example1() {
@@ -67,8 +149,8 @@ function destructuring() {
 
     function example2() {
 
-        var {c,b,a} = bar();
-        console.log(c,b,a); // 3 2 1
+        var { c, b, a } = bar();
+        console.log(c, b, a); // 3 2 1
 
         function bar() {
             return { a: 1, b: 2, c: 3 };
@@ -78,42 +160,42 @@ function destructuring() {
     function example3() {
         var aa = 10, bb = 20;
 
-        var o = {x: aa, y: bb};
-        var {x:AA, y:BB} = o;
+        var o = { x: aa, y: bb };
+        var { x: AA, y: BB } = o;
 
-        console.log(AA,BB); // 10 20
+        console.log(AA, BB); // 10 20
     }
 
     function example4() {
         var a, b, c, x, y, z;
-        [a,b,c] = foo(); // 1 2 3
-        ({x,y,z} = bar()); // 4 5 6
+        [a, b, c] = foo(); // 1 2 3
+        ({ x, y, z } = bar()); // 4 5 6
 
-        console.log(a,b,c);
-        console.log(x,y,z);
+        console.log(a, b, c);
+        console.log(x, y, z);
 
         function foo() {
-            return [1,2,3];
+            return [1, 2, 3];
         }
 
         function bar() {
-            return {x:4,y:5,z:6};
+            return { x: 4, y: 5, z: 6 };
         }
     }
 
     function assigningOnlyAFew() {
 
-        var [,b] = foo();
-        var {x,z} = bar();
+        var [, b] = foo();
+        var { x, z } = bar();
 
-        console.log(b,x,z); // 2 1 3
+        console.log(b, x, z); // 2 1 3
 
-        function foo () {
-            return [1,2,3];
+        function foo() {
+            return [1, 2, 3];
         }
 
         function bar() {
-            return {x:1,y:2,z:3};
+            return { x: 1, y: 2, z: 3 };
         }
     }
 
