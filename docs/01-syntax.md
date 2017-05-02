@@ -6,6 +6,7 @@
 + default value expressions
 + destructuring
 + object literal extensions
++ arrow functions
 
 ---
 
@@ -366,5 +367,40 @@ latex`\unicode` // { cooked: undefined, raw: "\\unicode" }
 
 ---
 
+## Arrow Functions
 
+### Not Just Shorter Syntax, But *this*
 
+> arrow functions are primarily designed to alter this behavior in a specific way, solving a particu‐ lar and common pain point with this-aware coding.
+
+```js
+//before arrow functions
+
+// In other words, because this bindings are dynamic, we fall back to the predictability of lexical scope via the self variable.
+var controller = {
+    makeRequest: function () {
+        var self = this;
+
+        btn.addEventListener("click", function () {
+            self.makeRequest();
+        }, false);
+    }
+};
+```
+
+With arrow functions
+
+```js
+// Inside arrow functions, the this binding is not dynamic, but is instead lexical.
+var controller = {
+    makeRequest: function () {
+        var self = this;
+
+        btn.addEventListener("click", () => {
+            this.makeRequest();
+        }, false);
+    }
+};
+```
+
+---

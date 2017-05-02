@@ -1,4 +1,40 @@
-export { spreadRest, scopes, defaultParameterValues, destructuring, objectLiteralExtensions }
+export { spreadRest, scopes, defaultParameterValues, destructuring, objectLiteralExtensions, arrowFunctions }
+
+function arrowFunctions() {
+
+    return {
+        example1
+    }
+
+    function example1() {
+
+        var controller = {
+            foo: function () {
+                this.myNumber = 3;
+                this.bar();
+                controller.bar();
+            },
+            bar: function () {
+                console.log('hello world');
+            }
+        }
+
+        controller.foo();
+
+        var controller2 = {
+            foo: () => {
+                controller2.bar();
+                // this.bar(); // not working
+            },
+            bar: () => {
+                console.log('hello world');
+            }
+        }
+
+        controller2.foo();
+    }
+
+}
 
 function objectLiteralExtensions() {
 
@@ -9,7 +45,7 @@ function objectLiteralExtensions() {
         computedPropertyNames
     }
 
-    function computedPrpertyNames () {
+    function computedPrpertyNames() {
 
     }
 

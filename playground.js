@@ -1,6 +1,8 @@
 import * as syntax from './src/syntax';
 
-syntax.objectLiteralExtensions().gettersAndSetters();
+syntax.arrowFunctions().example1();
+
+// syntax.objectLiteralExtensions().gettersAndSetters();
 // syntax.objectLiteralExtensions().properties();
 // syntax.objectLiteralExtensions().methods();
 
