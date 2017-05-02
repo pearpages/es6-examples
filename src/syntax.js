@@ -19,11 +19,19 @@ function arrowFunctions() {
             }
         }
 
-        controller.foo();
+        controller.foo(); // hello world \n hello world
+
+        this.helloMars = () => console.log('hello mars!');
+
+        function helloVenus () {
+            console.log('hello venus');
+        }
 
         var controller2 = {
             foo: () => {
-                controller2.bar();
+                this.helloMars();
+                helloVenus();
+                // this.helloVenus(); // does not work, does not exist
                 // this.bar(); // not working
             },
             bar: () => {
@@ -31,7 +39,7 @@ function arrowFunctions() {
             }
         }
 
-        controller2.foo();
+        controller2.foo(); // hello mars! \n hello venus
     }
 
 }
