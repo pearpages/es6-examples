@@ -1,6 +1,10 @@
 import * as syntax from './src/syntax';
+import * as org from './src/organization';
 
-syntax.iterables().forExample();
+org.modules().oldway();
+// org.iterators().next();
+
+// syntax.iterables().forExample();
 
 // syntax.arrowFunctions().example1();
 
