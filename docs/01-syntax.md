@@ -210,3 +210,44 @@ function bar() {
     return {x:4,y:5,z:6};
 }
 ```
+
+### Assigning only a few
+
+```js
+var [,b] = foo();
+var {x,z} = bar();
+
+console.log(b,x,z); // 2 1 3
+
+function foo () {
+    return [1,2,3];
+}
+
+function bar() {
+    return {x:1,y:2,z:3};
+}
+```
+
+### Default value assignment
+
+```js
+let [a = 3, b = 4, c = 7, d = 13] = foo();
+let {x= 23, y=4, z=-9, w= 12} = bar();
+
+console.log(a,b,c,d); // 1 2 3 13
+console.log(x,y,z,w); // 12 34 56 12
+
+function foo () {
+    return [1,2,3];
+}
+
+function bar() {
+    return {
+        x: 12,
+        y: 34,
+        z: 56
+    };
+```
+
+### Nested destructuring
+

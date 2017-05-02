@@ -3,7 +3,9 @@ import * as syntax from './src/syntax';
 // syntax.destructuring().example1();
 // syntax.destructuring().example2();
 // syntax.destructuring().example3();
-syntax.destructuring().example4();
+// syntax.destructuring().example4();
+// syntax.destructuring().assigningOnlyAFew();
+syntax.destructuring().defaultValueAssignment();
 
 // syntax.defaultParameterValues().default1();
 // syntax.defaultParameterValues().default2();
