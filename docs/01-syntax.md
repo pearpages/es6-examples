@@ -7,6 +7,8 @@
 + destructuring
 + object literal extensions
 + arrow functions
++ for..of loops
++ regular expressions
 
 ---
 
@@ -404,3 +406,87 @@ var controller = {
 ```
 
 ---
+
+## for .. of Loops
+
++ arrays
++ strings
++ generators
++ collections / TypedArrays
+
+```js
+var a = ['a', 'b', 'c', 'd', 'e'];
+
+a.forEach((v, i) => console.log(v, i));
+
+// =>
+// a 0
+// b 1
+// c 2
+// d 3
+// e 4
+
+idsAndValues(a);
+
+// =>
+// 0 a
+// 1 b
+// 2 c
+// 3 d
+// 4 e
+
+onlyValues(a);
+
+// =>
+// a
+// b
+// c
+// d
+// e
+
+oldWay(a);
+
+// =>
+// a
+// b
+// c
+// d
+// e
+
+function oldWay(array) {
+    var k = Object.keys(array);
+    for (var val, i = 0; i < k.length; i++) {
+        val = array[k[i]];
+        console.log(val);
+    }
+}
+
+function idsAndValues(array) {
+    for (var id in array) {
+        console.log(id, array[id]);
+    }
+}
+
+function onlyValues(array) {
+    for (var val of array) {
+        console.log(val);
+    }
+}
+```
+
+---
+
+## Regular Expressions
+
+### Unicode Flag
+
+So, as of ES6, the u flag tells a regular expression to process a string with the intepre‐ tation of Unicode (UTF-16) characters, such that such an extended character will be matched as a single entity.
+
+### Sticky Flag
+
+Sticky essentially means the regular expression has a virtual anchor at its beginning that keeps it rooted to matching at only the position indicated by the regu‐ lar expression’s lastIndex property.
+
+---
+
+## Number Literal Extensions
+

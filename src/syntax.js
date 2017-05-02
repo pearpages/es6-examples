@@ -1,4 +1,71 @@
-export { spreadRest, scopes, defaultParameterValues, destructuring, objectLiteralExtensions, arrowFunctions }
+export { spreadRest, scopes, defaultParameterValues, destructuring, objectLiteralExtensions, arrowFunctions, iterables }
+
+function iterables() {
+    return {
+        forExample
+    }
+
+    function forExample() {
+        var a = ['a', 'b', 'c', 'd', 'e'];
+
+        a.forEach((v, i) => console.log(v, i));
+
+        // =>
+        // a 0
+        // b 1
+        // c 2
+        // d 3
+        // e 4
+
+        idsAndValues(a);
+
+        // =>
+        // 0 a
+        // 1 b
+        // 2 c
+        // 3 d
+        // 4 e
+
+        onlyValues(a);
+
+        // =>
+        // a
+        // b
+        // c
+        // d
+        // e
+
+        oldWay(a);
+
+        // =>
+        // a
+        // b
+        // c
+        // d
+        // e
+
+        function oldWay(array) {
+            var k = Object.keys(array);
+            for (var val, i = 0; i < k.length; i++) {
+                val = array[k[i]];
+                console.log(val);
+            }
+        }
+
+        function idsAndValues(array) {
+            for (var id in array) {
+                console.log(id, array[id]);
+            }
+        }
+
+        function onlyValues(array) {
+            for (var val of array) {
+                console.log(val);
+            }
+        }
+
+    }
+}
 
 function arrowFunctions() {
 
@@ -15,7 +82,7 @@ function arrowFunctions() {
                 controller.bar();
             },
             bar: function (x) {
-                console.log('hello world '+x);
+                console.log('hello world ' + x);
             }
         }
 
@@ -23,7 +90,7 @@ function arrowFunctions() {
 
         this.helloMars = () => console.log('hello mars!');
 
-        function helloVenus () {
+        function helloVenus() {
             console.log('hello venus');
         }
 
